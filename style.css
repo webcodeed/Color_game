@@ -1,0 +1,138 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  max-width: 600px; /* Increased max-width for tablets */
+  width: 100%;
+}
+
+.instructions {
+  font-size: 20px; /* Slightly larger font for tablets */
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.color-box {
+  width: 200px; /* Larger color box for tablets */
+  height: 200px;
+  margin: 0 auto 20px;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+  gap: 15px; /* Increased gap for better spacing */
+  margin-bottom: 20px;
+}
+
+.color-option {
+  width: 100%;
+  height: 80px; /* Taller buttons for easier tapping */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.05);
+}
+
+.game-status {
+  font-size: 18px; /* Slightly larger font for tablets */
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 18px; /* Slightly larger font for tablets */
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.new-game-button {
+  background-color: #0073b1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px; /* Larger button for tablets */
+  font-size: 18px; /* Slightly larger font for tablets */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.new-game-button:hover {
+  background-color: #005f8e;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 1024px) {
+  .game-container {
+    max-width: 500px; /* Adjusted max-width for tablets */
+  }
+
+  .color-box {
+    width: 180px; /* Slightly smaller color box for smaller tablets */
+    height: 180px;
+  }
+
+  .color-options {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns */
+    gap: 10px; /* Adjusted gap */
+  }
+
+  .color-option {
+    height: 70px; /* Adjusted button height */
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .game-container {
+    max-width: 90%; /* Full width for smaller screens */
+    padding: 15px;
+  }
+
+  .instructions {
+    font-size: 18px; /* Adjusted font size */
+  }
+
+  .color-box {
+    width: 150px; /* Smaller color box for mobile */
+    height: 150px;
+  }
+
+  .color-options {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+    gap: 10px;
+  }
+
+  .color-option {
+    height: 60px; /* Smaller buttons for mobile */
+  }
+
+  .game-status,
+  .score {
+    font-size: 16px; /* Adjusted font size */
+  }
+
+  .new-game-button {
+    padding: 10px 20px; /* Adjusted button size */
+    font-size: 16px; /* Adjusted font size */
+  }
+}
