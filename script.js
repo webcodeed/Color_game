@@ -1,7 +1,17 @@
 // Predefined set of colors
 const colors = [
-  "#FF5733", "#33FF57", "#3357FF", "#FF33A1", "#A133FF", "#33FFF5",
-  "#FFC300", "#C70039", "#900C3F", "#581845", "#1A5276", "#1E8449"
+  "#FF5733",
+  "#33FF57",
+  "#3357FF",
+  "#FF33A1",
+  "#A133FF",
+  "#33FFF5",
+  "#FFC300",
+  "#C70039",
+  "#900C3F",
+  "#581845",
+  "#1A5276",
+  "#1E8449",
 ];
 
 // DOM Elements
@@ -25,7 +35,15 @@ function startNewGame() {
   colorBox.style.backgroundColor = targetColor;
 
   // Assign random colors to the buttons
-  const shuffledColors = [...colors].sort(() => Math.random() - 0.5);
+  let shuffledColors = [...colors].sort(() => Math.random() - 0.5);
+
+  // Checks if the target colour is part of the shuffled colours. if not, it extracts the first 5 and pushes the target the colour in before shuffling the array again
+  if (!shuffledColors.slice(0, 6).includes(targetColor)) {
+    shuffledColors = shuffledColors.slice(0, 5);
+    shuffledColors.push(targetColor);
+    shuffledColors.sort(() => Math.random() - 0.5);
+  }
+
   colorOptions.forEach((button, index) => {
     button.style.backgroundColor = shuffledColors[index];
   });
@@ -34,6 +52,7 @@ function startNewGame() {
 // Function to handle color option clicks
 function handleColorClick(event) {
   const selectedColor = event.target.style.backgroundColor;
+  const targetColor = colorBox.style.backgroundColor;
 
   if (selectedColor === targetColor) {
     gameStatus.textContent = "Correct!";
@@ -50,14 +69,14 @@ function handleColorClick(event) {
 }
 
 // Event Listeners
-colorOptions.forEach(button => {
+colorOptions.forEach((button) => {
   button.addEventListener("click", handleColorClick);
 });
 
 newGameButton.addEventListener("click", () => {
   score = 0;
   scoreElement.textContent = `Score: ${score}`;
-  colorOptions.forEach(button => {
+  colorOptions.forEach((button) => {
     button.style.opacity = "1";
     button.disabled = false;
   });
